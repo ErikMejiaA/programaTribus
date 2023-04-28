@@ -15,40 +15,35 @@ function nuevoHTML(myDato) {
     //recorremos el array tribusCampers
     myDato.forEach(element => {
 
-        //-----------------------------------------------------------------------------------
-        let contenedor = document.querySelector('#contenerPrincipal');//contenedor principal
-        let contenedorPrinci = /* html */ `
-        <div>
-            <div id="grupoTribu">
-
-            </div>
-
-            <div class="campers" id="grupoCampers">
-            
-            </div>
-        </div>
-        ` 
-        contenedor.innerHTML = contenedorPrinci; //+
-        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+        let datoTribus = document.querySelector('#contenerPrincipal'); //guardamos los datos en el contenedor tribu
+    
         const {idTribu, tribu, puntos, campers} = element; //datos de la tribu
-
-        let datoTribus = document.querySelector('#grupoTribu'); //guardamos los datos en el contenedor tribu
-        let verDatosTribus = /* html */ `
-        <div>
+        let verDatosTribus = '';
+        verDatosTribus += /* html */ `
+        <div class="grupoTribu" id="grupoTribu${idTribu}">
             <p>Id: ${idTribu}</p>
             <p>Nombre: ${tribu}</p>
             <p>Puntos: ${puntos}</p>
         </div>
+        
+        <div class="campers" id="grupoCampers${idTribu}">
+            
+        </div>
         `
-        datoTribus.innerHTML = verDatosTribus; //+
-               
-        campers.forEach(itemCampers => {
+        datoTribus.innerHTML += verDatosTribus; //+
+        
+        let datoCampers = document.querySelector(`#grupoCampers${idTribu}`);//almacenamos los datos del camper dentro de un contenedor 
+        datoCampers.innerHTML += vercampers(campers);
+        
+    });
+
+    function vercampers(datos){
+
+        let verDatosCampers = '';
+        datos.forEach(itemCampers => {
 
             const {id, nombre, edad, ingles, rol, img} = itemCampers;//datos de los campers
-
-            let datoCampers = document.querySelector('#grupoCampers'); //guardamos los datos en el contenedor contenedorCampers
-            let verDatosCampers = /* html */ `
+            verDatosCampers += /* html */ `
             <div class="carts">
                 <img src="img/${img}" alt="Foto Campers"/>
                 <p>Id: ${id}</p>
@@ -58,9 +53,8 @@ function nuevoHTML(myDato) {
                 <p>Rol: ${rol}</p>
             </div>
             `
-            datoCampers.innerHTML += verDatosCampers; //+
         });
-    });
+        return verDatosCampers;
+    }
 }
-
 document.querySelector('#verDatos').addEventListener('click', loadData)//add evento del boton
