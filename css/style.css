@@ -31,7 +31,7 @@ body {
     border-color: #266ab8;
     border-radius: 20px;
     font-family: 'Source Code Pro', monospace;
-    font-size: 18px;
+    font-size: 90%;
 }
 
 #verDatos:hover {
@@ -45,10 +45,13 @@ body {
 }
 
 #grupoTribu div {
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
     padding: 1%;
     box-sizing: border-box;
-    
+    margin-left: 6%;
+    flex-wrap: wrap;
 
 }
 
@@ -63,7 +66,6 @@ body {
 .campers{
     padding-top: 10px;
     display: flex;
-    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     flex-direction: row;
@@ -71,7 +73,6 @@ body {
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 1%;
-    
 }
 .carts{
     display: flex;
@@ -83,14 +84,12 @@ body {
     border-radius: 20px;
     padding: 2%;
     box-sizing: border-box;
+    height: 320px;
+    width: auto;
+    margin-bottom: 20px;
 }
 .carts img{
     width: 200px;
     height: 160px;
     border-radius: 5px;
 }
-
-
-
-
-
