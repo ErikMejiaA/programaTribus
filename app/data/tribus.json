@@ -10,7 +10,7 @@
                 "edad" : 17,
                 "ingles" : "A1",
                 "rol" : "Leader",
-                "img" : ""
+                "img" : "campuslands.jpg"
             },
             {
                 "id" : 2,
@@ -18,7 +18,7 @@
                 "edad" : 17,
                 "ingles" : "A1",
                 "rol" : "Leader Marketing",
-                "img" : ""
+                "img" : "campuslands.jpg"
             }
         ]
     }

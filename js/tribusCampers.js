@@ -11,41 +11,56 @@ function loadData() {
 }
 
 function nuevoHTML(myDato) {
-    
-    //recorremos el array tribusCampers
-    let datoTribus = document.querySelector('#tribu'); //guardamos los datos en el contenedor tribu
-    let datoCampers = document.querySelector('#contenerdorCampers'); //guardamos los datos en el contenedor contenedorCampers
 
+    //recorremos el array tribusCampers
     myDato.forEach(element => {
 
-        const {idTribu, tribu, puntos, campers} = element;
+        //-----------------------------------------------------------------------------------
+        let contenedor = document.querySelector('#contenerPrincipal');//contenedor principal
+        let contenedorPrinci = /* html */ `
+        <div>
+            <div id="grupoTribu">
 
+            </div>
+
+            <div class="campers" id="grupoCampers">
+            
+            </div>
+        </div>
+        ` 
+        contenedor.innerHTML = contenedorPrinci; //+
+        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        const {idTribu, tribu, puntos, campers} = element; //datos de la tribu
+
+        let datoTribus = document.querySelector('#grupoTribu'); //guardamos los datos en el contenedor tribu
         let verDatosTribus = /* html */ `
-        <p>Id: ${idTribu}</p>
-        <p>Nombre: ${tribu}</p>
-        <p>Puntos: ${puntos}</p>
+        <div>
+            <p>Id: ${idTribu}</p>
+            <p>Nombre: ${tribu}</p>
+            <p>Puntos: ${puntos}</p>
+        </div>
         `
-        datoTribus.innerHTML = verDatosTribus;
-
+        datoTribus.innerHTML = verDatosTribus; //+
+               
         campers.forEach(itemCampers => {
 
-            const {id, nombre, edad, ingles, rol, img} = itemCampers;
+            const {id, nombre, edad, ingles, rol, img} = itemCampers;//datos de los campers
 
+            let datoCampers = document.querySelector('#grupoCampers'); //guardamos los datos en el contenedor contenedorCampers
             let verDatosCampers = /* html */ `
-            <p>Id: ${id}</p>
-            <p>Nombre: ${nombre}</p>
-            <p>Edad: ${edad}</p>
-            <p>Ingles: ${ingles}</p>
-            <p>Rol: ${rol}</p>
-            <p>Img: ${img}</p>
+            <div class="carts">
+                <img src="img/${img}" alt="Foto Campers"/>
+                <p>Id: ${id}</p>
+                <p>Nombre: ${nombre}</p>
+                <p>Edad: ${edad}</p>
+                <p>Ingles: ${ingles}</p>
+                <p>Rol: ${rol}</p>
+            </div>
             `
-            datoCampers.innerHTML += verDatosCampers;
+            datoCampers.innerHTML += verDatosCampers; //+
         });
     });
-    
-    
-    
-    
 }
 
-document.querySelector('#verDatos').addEventListener('click', loadData)
+document.querySelector('#verDatos').addEventListener('click', loadData)//add evento del boton
