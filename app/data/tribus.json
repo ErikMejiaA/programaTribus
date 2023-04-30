@@ -19,6 +19,14 @@
                 "ingles" : "A1",
                 "rol" : "Leader Marketing",
                 "img" : "campuslands.jpg"
+            },
+            {
+                "id" : 3,
+                "nombre" : "Campers C",
+                "edad" : 17,
+                "ingles" : "A2",
+                "rol" : "Leader",
+                "img" : "campuslands.jpg"
             }
         ]
     }

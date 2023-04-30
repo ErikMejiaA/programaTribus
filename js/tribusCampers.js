@@ -1,5 +1,16 @@
 const URL_API = 'app/data/tribus.json';
 
+//botones++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+const verDatos = document.querySelector('#verDato');
+verDatos.addEventListener('click', loadData)//add evento del boton
+const limpiarDatos = document.querySelector('#limpiarDato');
+limpiarDatos.addEventListener('click', limpiarDato)
+
+function limpiarDato() {
+    location.reload();
+}
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 function loadData() {
     fetch(URL_API)
         .then((response) => {
@@ -8,6 +19,10 @@ function loadData() {
         .then((data) => {
             nuevoHTML(data);
         })
+
+    //deshabilitar el boton de ver lista
+    verDatos.disabled = true;
+    //----------------------------------
 }
 
 function nuevoHTML(myDato) {
@@ -20,21 +35,25 @@ function nuevoHTML(myDato) {
         const {idTribu, tribu, puntos, campers} = element; //datos de la tribu
         let verDatosTribus = '';
         verDatosTribus += /* html */ `
-        <div class="grupoTribu" id="grupoTribu${idTribu}">
-            <p>Id: ${idTribu}</p>
-            <p>Nombre: ${tribu}</p>
-            <p>Puntos: ${puntos}</p>
-        </div>
-        
-        <div class="campers" id="grupoCampers${idTribu}">
+        <div>
+            <h2>TRIBU</h2>
+            <div class="grupoTribu" id="grupoTribu${idTribu}">
+                
+                <p>Id: ${idTribu}</p>
+                <p>Nombre: ${tribu}</p>
+                <p>Puntos: ${puntos}</p>
+            </div>
             
+            <h3>CAMPERS</h3>
+            <div class="campers" id="grupoCampers${idTribu}">
+
+                
+            </div>
         </div>
-        `
+        `;
         datoTribus.innerHTML += verDatosTribus; //+
-        
         let datoCampers = document.querySelector(`#grupoCampers${idTribu}`);//almacenamos los datos del camper dentro de un contenedor 
         datoCampers.innerHTML += vercampers(campers);
-        
     });
 
     function vercampers(datos){
@@ -52,9 +71,8 @@ function nuevoHTML(myDato) {
                 <p>Ingles: ${ingles}</p>
                 <p>Rol: ${rol}</p>
             </div>
-            `
+            `;
         });
         return verDatosCampers;
     }
 }
-document.querySelector('#verDatos').addEventListener('click', loadData)//add evento del boton
