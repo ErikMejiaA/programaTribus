@@ -23,9 +23,17 @@
             {
                 "id" : 3,
                 "nombre" : "Campers C",
-                "edad" : 17,
+                "edad" : 18,
                 "ingles" : "A2",
                 "rol" : "Leader",
+                "img" : "campuslands.jpg"
+            },
+            {
+                "id" : 4,
+                "nombre" : "Campers D",
+                "edad" : 16,
+                "ingles" : "B1",
+                "rol" : "Leader Marketing",
                 "img" : "campuslands.jpg"
             }
         ]

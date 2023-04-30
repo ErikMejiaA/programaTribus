@@ -37,15 +37,14 @@ function nuevoHTML(myDato) {
         verDatosTribus += /* html */ `
         <div>
             <h2>TRIBU</h2>
-            <div class="grupoTribu" id="grupoTribu${idTribu}">
-                
+            <div class="contenedorTribu" id="grupoTribu${idTribu}">
                 <p>Id: ${idTribu}</p>
                 <p>Nombre: ${tribu}</p>
                 <p>Puntos: ${puntos}</p>
             </div>
             
             <h3>CAMPERS</h3>
-            <div class="campers" id="grupoCampers${idTribu}">
+            <div class="contenedorCampers" id="grupoCampers${idTribu}">
 
                 
             </div>
@@ -63,13 +62,13 @@ function nuevoHTML(myDato) {
 
             const {id, nombre, edad, ingles, rol, img} = itemCampers;//datos de los campers
             verDatosCampers += /* html */ `
-            <div class="carts">
+            <div class="targetas">
                 <img src="img/${img}" alt="Foto Campers"/>
-                <p>Id: ${id}</p>
-                <p>Nombre: ${nombre}</p>
-                <p>Edad: ${edad}</p>
-                <p>Ingles: ${ingles}</p>
-                <p>Rol: ${rol}</p>
+                <h5>Id: ${id}</h5>
+                <h5>Nombre: ${nombre}</h5>
+                <h5>Edad: ${edad}</h5>
+                <h5>Ingles: ${ingles}</h5>
+                <h5>Rol: ${rol}</h5>
             </div>
             `;
         });
